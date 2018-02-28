@@ -14,7 +14,7 @@
                 <views:ItemsPage />
             </x:Arguments>
         </NavigationPage>
-        
+
         <NavigationPage Title="About">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -22,7 +22,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:AboutPage />
+                <views:Settings />
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>

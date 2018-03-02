@@ -5,12 +5,12 @@ using Xamarin.Forms.Xaml;
 
 namespace CameraApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AboutPage : ContentPage
-	{
-		public AboutPage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AboutPage : ContentPage
+    {
+        public AboutPage()
+        {
+            InitializeComponent();
+        }
+    }
 }

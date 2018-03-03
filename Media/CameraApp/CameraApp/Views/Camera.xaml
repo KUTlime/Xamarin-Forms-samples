@@ -10,12 +10,32 @@
         <vm:CameraViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand"
-                />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout
+                Padding="10"
+                Spacing="10"
+                >
+                <Button
+                    x:Name="takePhoto"
+                    Text="Take Photo"
+                    />
+                <Button
+                    x:Name="pickPhoto"
+                    Text="Pick Photo"
+                    />
+                <Button
+                    x:Name="takeVideo"
+                    Text="Take Video"
+                    />
+                <Button
+                    x:Name="pickVideo"
+                    Text="Pick Video"
+                    />
+
+                <Image
+                    x:Name="image"
+                    />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

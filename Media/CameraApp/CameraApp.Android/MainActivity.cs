@@ -17,7 +17,7 @@ namespace CameraApp.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);

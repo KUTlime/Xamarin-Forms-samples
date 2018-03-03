@@ -10,7 +10,6 @@ namespace CameraApp.ViewModels
         public SettingsViewModel()
         {
             Title = "Settings";
-
         }
 
     }

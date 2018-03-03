@@ -4,7 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 
-namespace CameraApp.Views
+namespace CameraApp
 {
     [Application]
     public class MainApplication : Application, Application.IActivityLifecycleCallbacks

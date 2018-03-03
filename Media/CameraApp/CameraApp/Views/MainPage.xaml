@@ -7,20 +7,10 @@
     >
     <TabbedPage.Children>
         <NavigationPage
-            Title="Browse"
+            Title="Camera"
             >
-            <NavigationPage.Icon>
-                <OnPlatform
-                    x:TypeArguments="FileImageSource"
-                    >
-                    <On
-                        Platform="iOS"
-                        Value="tab_feed.png"
-                        />
-                </OnPlatform>
-            </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <views:Camera />
             </x:Arguments>
         </NavigationPage>
         <NavigationPage

@@ -8,12 +8,13 @@
     Title="{Binding Title}"
     >
     <ContentPage.BindingContext>
-        <vm:Maps />
+        <vm:MapsViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <maps:CustomMap
             x:Name="customMap"
             MapType="Street"
+            Pins="{Binding Pin}"
             />
     </ContentPage.Content>
 </ContentPage>

@@ -7,6 +7,7 @@ using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CameraApp;
+using CameraApp.ViewModels;
 
 namespace CameraApp.Views
 {
@@ -24,6 +25,13 @@ namespace CameraApp.Views
             ListViewPositions.ItemsSource = Positions;
         }
 
+        private void UpdateSettings(Position position)
+        {
+            Helpers.Settings.Longitude = position?.Longitude ?? Helpers.Settings.Longitude;
+            Helpers.Settings.Latitude = position?.Latitude ?? Helpers.Settings.Latitude;
+            Helpers.Settings.Altitude = position?.Altitude ?? Helpers.Settings.Altitude;
+
+        }
 
         private async void ButtonCached_Clicked(object sender, EventArgs e)
         {
@@ -46,6 +54,8 @@ namespace CameraApp.Views
                     LabelCached.Text = "null cached location :(";
                     return;
                 }
+
+                UpdateSettings(position);
 
                 _savedPosition = position;
                 ButtonAddressForPosition.IsEnabled = true;
@@ -84,6 +94,9 @@ namespace CameraApp.Views
                     labelGPS.Text = "null GPS :(";
                     return;
                 }
+
+                UpdateSettings(position);
+
                 _savedPosition = position;
                 ButtonAddressForPosition.IsEnabled = true;
                 labelGPS.Text =

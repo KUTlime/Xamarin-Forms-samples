@@ -23,7 +23,7 @@
         </NavigationPage>
 
         <NavigationPage
-            Title="Maps"
+            Title="MapsViewModel"
             >
             <x:Arguments>
                 <views:Maps />

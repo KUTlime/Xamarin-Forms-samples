@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using CameraApp.Helpers;
 
 namespace CameraApp.Views
 {
@@ -16,8 +17,8 @@ namespace CameraApp.Views
         public Maps()
         {
             InitializeComponent();
-            var position = new Position(43.5, 16.5);
-            var pin = new Pin
+            var position = new Position(Helpers.Settings.Longitude, Helpers.Settings.Latitude);
+            /*var pin = new Pin
             {
                 Type = PinType.Place,
                 Position = position,
@@ -25,7 +26,7 @@ namespace CameraApp.Views
                 Address = "To be added"
             };
 
-            customMap.Pins.Add(pin);
+            customMap.Pins.Add(pin);*/
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromKilometers(1.0)));
         }
     }

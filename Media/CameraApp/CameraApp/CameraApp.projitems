@@ -24,7 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BarcodeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CameraViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LocationViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Maps.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MapsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CameraApp.Views.Maps"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:CameraApp.Maps;assembly=CameraApp.Android"
+    xmlns:vm="clr-namespace:CameraApp.ViewModels;"
+    Title="{Binding Title}"
+    >
+    <ContentPage.BindingContext>
+        <vm:Maps />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <maps:CustomMap
+            x:Name="customMap"
+            MapType="Street"
+            />
+    </ContentPage.Content>
+</ContentPage>

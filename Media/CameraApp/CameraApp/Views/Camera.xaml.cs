@@ -106,7 +106,7 @@ namespace CameraApp.Views
                 await DisplayAlert("Video Selected", "Location: " + file.Path, "OK");
                 file.Dispose();
             };
-
         }
+
     }
 }

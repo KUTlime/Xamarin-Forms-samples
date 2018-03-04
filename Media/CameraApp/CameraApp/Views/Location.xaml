@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CameraApp.Views.Location"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:CameraApp.ViewModels;"
+    Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:LocationViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Padding="10" Spacing="10">
+                    <Button
+                        x:Name="ButtonCached"
+                        Clicked="ButtonCached_Clicked"
+                        Text="Get Last Known Location">
+                        <Button.IsVisible>
+                            <OnPlatform
+                                x:TypeArguments="x:Boolean"
+                                Android="true"
+                                WinPhone="false"
+                                iOS="true" />
+                        </Button.IsVisible>
+                    </Button>
+                    <Label x:Name="LabelCached" />
+                    <Label Text="Location Options" />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label HorizontalOptions="Center" Text="Include Heading" />
+                        <Switch
+                            x:Name="IncludeHeading"
+                            HorizontalOptions="Center"
+                            IsToggled="false" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout>
+                            <Label BindingContext="{x:Reference Timeout}" Text="{Binding Value, StringFormat='Timeout = {0:F0} Seconds'}" />
+                        </StackLayout>
+                        <Stepper
+                            x:Name="Timeout"
+                            Increment="1"
+                            Maximum="60"
+                            Minimum="2"
+                            Value="10" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout>
+                            <Label BindingContext="{x:Reference DesiredAccuracy}" Text="{Binding Value, StringFormat='Desired Accuracy = {0:F0} Meters'}" />
+                        </StackLayout>
+                        <Stepper
+                            x:Name="DesiredAccuracy"
+                            Increment="10"
+                            Maximum="1500"
+                            Minimum="10"
+                            Value="500" />
+                    </StackLayout>
+
+                    <Button
+                        x:Name="ButtonGetGPS"
+                        Clicked="ButtonGetGPS_Clicked"
+                        Text="Get Current Location" />
+                    <Label x:Name="labelGPS" />
+
+                    <Button
+                        x:Name="ButtonAddressForPosition"
+                        Clicked="ButtonAddressForPosition_Clicked"
+                        IsEnabled="False"
+                        Text="Get Address for Position" />
+                    <Label x:Name="LabelAddress" />
+
+                </StackLayout>
+            </ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".65*" />
+                    <RowDefinition Height=".35*" />
+                </Grid.RowDefinitions>
+                <ScrollView Grid.Row="0">
+                    <StackLayout Padding="10" Spacing="10">
+                        <Button
+                            x:Name="ButtonTrack"
+                            Clicked="ButtonTrack_Clicked"
+                            Text="Track Movement" />
+
+                        <Label Text="Location Options" />
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label HorizontalOptions="Center" Text="Include Heading" />
+                            <Switch
+                                x:Name="TrackIncludeHeading"
+                                HorizontalOptions="Center"
+                                IsToggled="false" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label BindingContext="{x:Reference TrackTimeout}" Text="{Binding Value, StringFormat='Min Time Between Updates = {0:F0} Seconds'}" />
+                            <Stepper
+                                x:Name="TrackTimeout"
+                                Increment="10"
+                                Maximum="60"
+                                Minimum="10"
+                                Value="10" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label BindingContext="{x:Reference TrackDistance}" Text="{Binding Value, StringFormat='Min Distance Between = {0:F0} Meters'}" />
+                            <Stepper
+                                x:Name="TrackDistance"
+                                Increment="10"
+                                Maximum="1000"
+                                Minimum="0"
+                                Value="10" />
+                        </StackLayout>
+
+                        <StackLayout>
+                            <StackLayout.IsVisible>
+                                <OnPlatform
+                                    x:TypeArguments="x:Boolean"
+                                    Android="false"
+                                    WinPhone="false"
+                                    iOS="true" />
+                            </StackLayout.IsVisible>
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="Center" Text="Allow Background Updates" />
+                                <Switch
+                                    x:Name="AllowBackgroundUpdates"
+                                    HorizontalOptions="Center"
+                                    IsToggled="false" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="Center" Text="Listen for Significant Changes" />
+                                <Switch
+                                    x:Name="ListenForSig"
+                                    HorizontalOptions="Center"
+                                    IsToggled="false" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="Center" Text="Pause Location Updates Auto" />
+                                <Switch
+                                    x:Name="PauseLocation"
+                                    HorizontalOptions="Center"
+                                    IsToggled="false" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label HorizontalOptions="Center" Text="Defer Location Updates" />
+                                <Switch
+                                    x:Name="DeferUpdates"
+                                    HorizontalOptions="Center"
+                                    IsToggled="false" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label BindingContext="{x:Reference DeferalDistance}" Text="{Binding Value, StringFormat='Deferal Distance = {0:F0} Meters'}" />
+                                <Stepper
+                                    x:Name="DeferalDistance"
+                                    Increment="10"
+                                    Maximum="1000"
+                                    Minimum="0"
+                                    Value="10" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label BindingContext="{x:Reference DeferalTIme}" Text="{Binding Value, StringFormat='Deferal Distance = {0:F0} Seconds'}" />
+                                <Stepper
+                                    x:Name="DeferalTIme"
+                                    Increment="1"
+                                    Maximum="120"
+                                    Minimum="1"
+                                    Value="1" />
+                            </StackLayout>
+
+                            <Label Text="Activity Type" />
+                            <Picker x:Name="ActivityTypePicker">
+                                <Picker.Items>
+                                    <x:String>Other</x:String>
+                                    <x:String>Automotive Navigation</x:String>
+                                    <x:String>Fitness</x:String>
+                                    <x:String>Other Navigation</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </StackLayout>
+
+
+                        <Label x:Name="labelGPSTrack" />
+                        <Label x:Name="LabelCount" />
+                    </StackLayout>
+                </ScrollView>
+                <ListView
+                    x:Name="ListViewPositions"
+                    Grid.Row="1"
+                    CachingStrategy="RecycleElement"
+                    HasUnevenRows="true"
+                    RowHeight="-1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Spacing="5">
+                                    <Label FontSize="Small" Text="{Binding Timestamp, StringFormat='{}{0:MM/dd/yyyy a\\t h:mm tt}'}}" />
+                                    <Label FontSize="Micro" Text="{Binding Latitude}" />
+                                    <Label FontSize="Micro" Text="{Binding Longitude}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
